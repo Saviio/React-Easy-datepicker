@@ -1,0 +1,6 @@
+
+
+var 
+	React=require('react')
+
+

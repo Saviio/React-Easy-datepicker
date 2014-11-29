@@ -1,0 +1,37 @@
+{
+  "name": "React-Easy-datepicker",
+  "version": "0.1.0",
+  "description": "A ReactJS datepicker component",
+  "main": "app.jsx",
+  "repository": {
+    "type": "git",
+    "url": "hhttps://github.com/Saviio/React-Easy-datepicker.git"
+  },
+  "keywords": [
+    "react-component",
+    "react",
+    "datepicker"
+  ],
+  "author": {
+    "name": "Saviio"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Saviio/React-Easy-datepicker/issues"
+  },
+  "homepage": "https://github.com/Saviio/React-Easy-datepicker",
+  "dependencies": {
+    "react": "*",
+    "Reflux":"^2.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^5.11.2",
+    "gulp": "^3.8.8",
+    "react": "*",
+    "reactify": "*",
+    "vinyl-source-stream": "*"
+  },
+  "readmeFilename": "README.md",
+  "_id": "React-Easy-datepicker@0.1.0",
+  "_from": "React-Easy-datepicker@"
+}
