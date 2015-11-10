@@ -47,23 +47,23 @@
 		border-right: #343333 1px solid;
 	}
 	#calendar .header .arrow-left{
-		margin-right: 20px;
+
 		cursor: pointer;
-		font-family: entypo;
-		font-size: 35px;
+
+
 		position: absolute;
 		left: 25px;
-		top: 0.5px;
+		top: 6px;
 	}
 
 	#calendar .header .arrow-right{
-		margin-left: 20px;
+
 		cursor: pointer;
-		font-family: entypo;
-		font-size: 35px;
+
+
 		position: absolute;
 		right:25px;
-		top:0.5px;
+		top:6px;
 	}
 
 	.arrow-right img,.arrow-left img{
