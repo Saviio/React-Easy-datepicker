@@ -29,7 +29,6 @@ var Calendar = React.createClass({
 		var
 			filter  = this.props.filter || 'mm dd, yyyy'
 			display = utils.convert(this.state.display,filter),
-			style   = {marginLeft:'25px',marginRight:'25px'},
 			cx 	    = React.addons.classSet,
 			classes = cx({
 			    'clndr': true,
@@ -41,7 +40,7 @@ var Calendar = React.createClass({
 			<div>
 				<div className="picker" onClick={this.show}>
 					<img className="menu" src="menu.svg" alt="Menu pictogram" />
-					<span className="label" style={style}>{display}</span>
+					<span className="label">{display}</span>
 				</div>
 				<div className={classes}>
 					<div className="header" >

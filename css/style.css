@@ -174,7 +174,10 @@
 	}
 
 	.label{
-		margin-left:25px;margin-right:25px;display: inline-block;vertical-align: top;
+		margin-left:15px;
+		margin-right:25px;
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	@-webkit-keyframes fadeIn{
