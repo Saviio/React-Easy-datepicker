@@ -169,8 +169,9 @@
 	}
 
 	.menu{
-		width: 20px;
-		margin-top: 8px;
+		width: 19px;
+		margin-top: 10px;
+		height: 16px;
 	}
 
 	.label{
