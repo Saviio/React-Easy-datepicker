@@ -37,7 +37,7 @@ var Actions=Reflux.createActions([
 module.exports = Actions;
 },{"Reflux":21}],3:[function(require,module,exports){
 
-var 
+var
 	React    = require('react/addons'),
 	utils    = require("../utils.js"),
 	Console  = require('./Console.jsx'),
@@ -63,8 +63,8 @@ var Calendar = React.createClass({displayName: 'Calendar',
   		Actions.show()
   	},
 	render:function(){
-		
-		var 
+
+		var
 			filter  = this.props.filter || 'mm dd, yyyy'
 			display = utils.convert(this.state.display,filter),
 			style   = {marginLeft:'25px',marginRight:'25px'},
@@ -78,8 +78,8 @@ var Calendar = React.createClass({displayName: 'Calendar',
 		return (
 			React.createElement("div", null, 
 				React.createElement("div", {className: "picker", onClick: this.show}, 
-					React.createElement("span", {className: "icon"}, " ☰ "), 
-					React.createElement("span", {style: style}, display)
+					React.createElement("img", {className: "menu", src: "menu.svg", alt: "Menu pictogram"}), 
+					React.createElement("span", {className: "label", style: style}, display)
 				), 
 				React.createElement("div", {className: classes}, 
 					React.createElement("div", {className: "header"}, 
@@ -93,10 +93,11 @@ var Calendar = React.createClass({displayName: 'Calendar',
 })
 
 module.exports = Calendar
+
 },{"../Actions/Actions.js":2,"../Stores/Store.js":8,"../utils.js":189,"./Console.jsx":4,"./Grid.jsx":6,"Reflux":21,"react/addons":27}],4:[function(require,module,exports){
 
 
-var 
+var
 	React    = require('react'),
 	utils    = require("../utils.js"),
 	Actions  = require("../Actions/Actions.js")
@@ -121,11 +122,11 @@ var Console=React.createClass({displayName: 'Console',
 		return (
 			React.createElement("div", {className: "console"}, 
 				React.createElement("a", {className: "arrow-left", onClick: this.prevMonth}, 
-					React.createElement("span", null, "")
+					React.createElement("img", {src: "chevron-left.svg", alt: "Chevron left pictogram"})
 				), 
 				React.createElement("span", {onClick: this.reset}, this.props.Month, "  ", this.props.Year), 
 				React.createElement("a", {className: "arrow-right", onClick: this.nextMonth}, 
-					React.createElement("span", null, "")
+					React.createElement("img", {src: "chevron-right.svg", alt: "Chevron left pictogram"})
 				)
 			)
 		)
@@ -133,6 +134,7 @@ var Console=React.createClass({displayName: 'Console',
 })
 
 module.exports = Console;
+
 },{"../Actions/Actions.js":2,"../utils.js":189,"react":188}],5:[function(require,module,exports){
 
 var 

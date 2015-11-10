@@ -1,6 +1,6 @@
 
 
-var 
+var
 	React    = require('react'),
 	utils    = require("../utils.js"),
 	Actions  = require("../Actions/Actions.js")
@@ -25,11 +25,11 @@ var Console=React.createClass({
 		return (
 			<div className="console">
 				<a className="arrow-left" onClick={this.prevMonth}>
-					<span>&#59233;</span>
+					<img  src="chevron-left.svg" alt="Chevron left pictogram"/>
 				</a>
 				<span onClick={this.reset}>{this.props.Month}  {this.props.Year}</span>
 				<a className="arrow-right" onClick={this.nextMonth}>
-					<span >&#59234;</span>
+					<img  src="chevron-right.svg" alt="Chevron left pictogram"/>
 				</a>
 			</div>
 		)

@@ -1,7 +1,7 @@
 	html{
 		background-image: url(http://gurudigger.com/assets/bg-ccb563c138abb9855c8faa09e5edcfd8.png);
 	}
-	
+
 	#calendar{
 		position: absolute;
 		left:500px;
@@ -17,7 +17,7 @@
 		margin-top: 10px;
 		-webkit-animation: fadeIn 0.5s 0s ease both;
 	}
-	
+
 	.console,#calendar .title{
 		display: inline-block;
 	}
@@ -66,6 +66,10 @@
 		top:0.5px;
 	}
 
+	.arrow-right img,.arrow-left img{
+		height: 20px;
+	}
+
 	#calendar table{
 		margin: auto;
 		border-collapse:collapse;
@@ -74,7 +78,7 @@
 
 	#calendar table thead{
 		border-left: #343333 1px solid;
-		border-right: #343333 1px solid;		
+		border-right: #343333 1px solid;
 	}
 
 	#calendar table tbody{
@@ -139,10 +143,10 @@
 		text-shadow: white 0 1px 0;
 		box-shadow: 0 0 5px rgb(207, 207, 207);
 	}
-	
+
 	.picker .icon{
 		font-family: entypo;
-		font-size: 30px;	
+		font-size: 30px;
 		position: absolute;
 		left: 9px;
 		top: 1px;
@@ -153,15 +157,24 @@
 	}
 
 	#calendar .fadeIn{
-		
+
 	}
-	
+
 	#calendar .hide{
 		display: none;
 	}
-	
+
 	#calendar .show{
 
+	}
+
+	.menu{
+		width: 20px;
+		margin-top: 8px;
+	}
+
+	.label{
+		margin-left:25px;margin-right:25px;display: inline-block;vertical-align: top;
 	}
 
 	@-webkit-keyframes fadeIn{

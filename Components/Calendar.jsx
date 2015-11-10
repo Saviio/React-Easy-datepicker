@@ -1,5 +1,5 @@
 
-var 
+var
 	React    = require('react/addons'),
 	utils    = require("../utils.js"),
 	Console  = require('./Console.jsx'),
@@ -25,8 +25,8 @@ var Calendar = React.createClass({
   		Actions.show()
   	},
 	render:function(){
-		
-		var 
+
+		var
 			filter  = this.props.filter || 'mm dd, yyyy'
 			display = utils.convert(this.state.display,filter),
 			style   = {marginLeft:'25px',marginRight:'25px'},
@@ -39,9 +39,9 @@ var Calendar = React.createClass({
 
 		return (
 			<div>
-				<div className="picker" onClick={this.show}> 
-					<span className="icon"> &#9776; </span>
-					<span style={style}>{display}</span>
+				<div className="picker" onClick={this.show}>
+					<img className="menu" src="menu.svg" alt="Menu pictogram" />
+					<span className="label" style={style}>{display}</span>
 				</div>
 				<div className={classes}>
 					<div className="header" >
