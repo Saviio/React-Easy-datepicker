@@ -1,5 +1,5 @@
 export default function(){
     var element = document.createElement('h1');
-    element.innerHTML = 'check';
+    element.innerHTML = 'checkX';
     return element;
 }
