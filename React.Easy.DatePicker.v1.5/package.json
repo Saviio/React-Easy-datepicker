@@ -1,0 +1,37 @@
+{
+  "name": "react-easy-datepicker-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --progress --colors --hot --content-base build"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^5.5.8",
+    "babel-loader": "^5.1.4",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "babel-runtime": "^5.5.8",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.4.2",
+    "postcss-loader": "^0.6.0",
+    "raw-loader": "^0.5.1",
+    "react-dom": "^0.14.2",
+    "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^2.1.5",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.6",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "react": "^0.14.2",
+    "redux": "^3.0.4"
+  }
+}
