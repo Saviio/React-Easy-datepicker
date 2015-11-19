@@ -1,6 +1,6 @@
-import React from 'react'
+import React      from 'react'
+import style      from '../css/style.css'
 import classNames from 'classnames/bind'
-import style from '../css/style.css'
 
 let cx=classNames.bind(style)
 

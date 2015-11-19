@@ -1,5 +1,5 @@
 
-var 
+var
     React = require('react'),
     Day   = require('./Day.jsx'),
     utils = require('../utils.js')

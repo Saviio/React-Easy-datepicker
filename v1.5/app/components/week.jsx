@@ -1,5 +1,5 @@
+import Day   from './day.jsx'
 import React from 'react'
-import Day from './day.jsx'
 import utils from '../utils'
 
 

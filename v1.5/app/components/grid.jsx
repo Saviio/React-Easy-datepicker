@@ -1,7 +1,6 @@
 import React from 'react'
+import Week  from './week.jsx'
 import utils from '../utils'
-import Week from './week.jsx'
-
 
 export default class Grid extends React.Component{
     render(){
