@@ -5,7 +5,7 @@ import style from '../css/style.css'
 let cx=classNames.bind(style)
 
 
-export default class Day extends React.Component {
+export default class Day extends React.Component{
 
     enter(){
         console.log('ENTER!')

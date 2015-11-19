@@ -1,4 +1,4 @@
-import {Week,Month,MiniWeek,MiniMonth} from './config'
+import {week,month,miniWeek,miniMonth} from './config'
 
 
 function current(){
@@ -54,7 +54,7 @@ function getMonthData(year,month){
 		prevMonth=month-1
 	}
 
-	prevRange=this.getMonthSize(year,prevMonth)
+	let prevRange=this.getMonthSize(year,prevMonth)
 
 	for(var i=0;i<dayBefore;i++)
 		prevMonthDays.push(prevRange-i)
@@ -158,6 +158,13 @@ var convert=(function(field,format){
 	}
 })()
 
+function range(to){
+    var arr=[]
+    for(let i=0;i<to;i++)
+        arr[i]=i
+    return arr
+}
+
 let utils={
     time:{
         current,
@@ -166,10 +173,15 @@ let utils={
         displayNow,
         today,
         getMonthData,
-        convert
+        convert,
+        week,
+        month,
+        miniWeek,
+        miniMonth
     },
     addClass,
-    removeClass
+    removeClass,
+    range
 }
 
 export default utils
