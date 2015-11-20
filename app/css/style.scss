@@ -35,12 +35,15 @@
 				.arrow-left,.arrow-right{
 					cursor: pointer;
 					position: absolute;
-					left: 25px;
 					top: 6px;
 
 					img{
 						height:20px;
 					}
+				}
+
+				.arrow-left{
+					left: 25px;
 				}
 
 				.arrow-right{
@@ -169,11 +172,29 @@
 	}
 
 	@keyframes fadeIn{
-		0%{opacity: 0;-webkit-transform:translateY(-10px)}
-		100%{opacity: 100;-webkit-transform:translateY(0)}
+		0% {
+			opacity: 0;
+			transform:translateY(-10px);
+		}
+
+		100% {
+			opacity: 100;
+			transform:translateY(0);
+		}
 	}
 
 	@keyframes fadeOut{
-		0%{opacity: 100;display:block;-webkit-transform:translateY(0px)}
-		100%{opacity: 0;display:none;-webkit-transform:translateY(-10px)}
+		0% {
+			opacity: 100;
+			transform:translateY(0px);
+		}
+		100% {
+			opacity: 0;
+			transform:translateY(-10px);
+		}
+	}
+
+	.afterFadeOut {
+	  transition-delay: 1s;
+	  display: none;
 	}

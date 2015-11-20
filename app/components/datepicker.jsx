@@ -12,19 +12,17 @@ let cx=classNames.bind(style)
 export default class Datepicker extends React.Component{
     state = this.init(true)
 
-
     toggle(){
-        this.setState({
-            ...this.state,
-            visable:!this.state.visable
-        })
+        let visable=this.state.visable
+        this.setState({...this.state, visable:!visable, isInit : false})
+        if(visable)
+            this.autoHide()
     }
 
-    hide(){
-        this.setState({
-            ...this.state,
-            visable:false
-        })
+    autoHide(){
+        setTimeout(()=>
+            utils.addClass(this.refs.Pop,'hide')
+        ,800)
     }
 
     nextMonth(){
@@ -61,10 +59,8 @@ export default class Datepicker extends React.Component{
             newDate.setMonth(month-1)
             newDate.setDate(date)
 
-            this.setState({
-                ...this.init(false,newDate),
-                visable : false
-            })
+            this.setState({...this.init(false,newDate), visable:false})
+            this.autoHide()
         }
     }
 
@@ -83,7 +79,7 @@ export default class Datepicker extends React.Component{
     }
 
     reset(){
-        this.setState({...this.init(),visable:true})
+        this.setState({...this.init(), visable:true})
     }
 
     refresh(state){
@@ -104,14 +100,13 @@ export default class Datepicker extends React.Component{
 			    'hide':!this.state.visable && this.state.isInit
 			})
 
-
 		return (
 			<div>
 				<div className="picker" onClick={::this.toggle}>
 					<img className="menu" src={menu} alt="Menu pictogram" />
 					<span className="label">{display}</span>
 				</div>
-				<div className={classes}>
+				<div className={classes} ref="Pop">
 					<div className="header" >
 						<Console
                             month={utils.time.month[this.state.month-1]}
@@ -125,7 +120,6 @@ export default class Datepicker extends React.Component{
                         days={this.state.days}
                         month={this.state.month}
                         year={this.state.year}
-                        onHide={::this.hide}
                         onPickDate={::this.pickDate}
                     />
 				</div>
