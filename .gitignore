@@ -4,4 +4,5 @@ entypo
 React.Easy.DatePicker.v1.5/src
 v1.5/src
 v1.5/build/
-build
+build/*
+build/index.html

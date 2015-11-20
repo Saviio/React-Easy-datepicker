@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server --progress --colors  --content-base build"
+    "build_win": "SET NODE_ENV=production&&webpack",
+    "dev_win": "SET NODE_ENV=development && webpack-dev-server --progress --colors  --content-base build",
+    "build":"NODE_ENV=production webpack",
+    "dev":"NODE_ENV=development webpack-dev-server --progress --colors  --content-base build"
   },
   "author": "",
   "license": "MIT",

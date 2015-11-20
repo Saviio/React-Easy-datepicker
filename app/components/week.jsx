@@ -13,7 +13,7 @@ export default class Week extends React.Component{
         let
              idx   = this.props.days.indexOf(1)
             ,today = utils.time.today()
-
+            
         return (
             <tr className="week">
                 {this.props.days.map((e,i) => {

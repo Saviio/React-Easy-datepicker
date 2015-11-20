@@ -4,11 +4,12 @@ var webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+
+var env=process.env.NODE_ENV
+
+var config={
     devtool: 'source-map',
     entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080',
         path.resolve(__dirname, 'app/main.js')
     ],
     output: {
@@ -16,28 +17,17 @@ module.exports = {
         filename: 'bundle.js',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('[name].[hash].css', {
-            disable: true
-        }),
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
-        new HtmlWebpackPlugin({
-            template:'./app/index.html',
-            inject:'body',
-            minify:{}
-        })
+        new webpack.HotModuleReplacementPlugin()
     ],
     module: {
         loaders: [{
           test: /\.(js|jsx|es)$/,
           loaders: ['react-hot', 'babel'],
           exclude: /node_modules/
-        }, {
+        },{
           test: /\.(woff|woff2|ttf|eot)$/,
           loader: 'file'
-        }, {
+        },{
           test: /\.(png|jpg|jpeg|git|svg)$/,
           loader:'url-loader?limit=8192'
         },{
@@ -58,5 +48,44 @@ module.exports = {
         autoprefixer({
           browsers: ['last 2 version']
         })
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true,
+        hot:true,
+        publicPath:null,
+        port:3000
+    }
 }
+
+
+if(env==='development'){
+    [
+        'webpack-dev-server/client?http://0.0.0.0:3000',
+        'webpack/hot/only-dev-server'
+    ].forEach(function(e){
+        config.entry.unshift(e)
+    })
+
+    config.devtool='inline-source-map'
+}
+
+
+if(env==='production'){
+    [
+        new ExtractTextPlugin('[name].[hash].css', {
+            disable: false
+        }),
+        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
+        new HtmlWebpackPlugin({
+            template:'./app/index.html',
+            inject:'body',
+            minify:{}
+        })
+    ].forEach(function(e){ config.plugins.push(e) })    
+}
+
+
+
+module.exports = config
