@@ -11,6 +11,9 @@ Anyway，依旧是DEMO性质的组件，徒作练习。
 
 ![image](https://raw.githubusercontent.com/Saviio/Saviio.github.io/master/images/1120.png)
 
+###[Live Demo](http://saviio.github.io/React-Easy-datepicker/index.html)
+
+
 ###Run
 ```
     npm install
