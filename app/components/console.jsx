@@ -5,15 +5,15 @@ import right from '../res/chevron-right.svg'
 
 export default class Console extends React.Component{
     prevMonth(){
-        console.log('PREV_MONTH')
+        this.props.onPrev()
     }
 
-    nextMont(){
-        console.log('NEXT_MONTH')
+    nextMonth(){
+        this.props.onNext()
     }
 
     reset(){
-        console.log('RESET')
+        this.props.onReset()
     }
 
     render(){
@@ -22,7 +22,7 @@ export default class Console extends React.Component{
                 <a className="arrow-left" onClick={::this.prevMonth}>
                     <img src={left} alt="LEFT-ARROW"/>
                 </a>
-                <span onClick={::this.reset}>{this.props.Month}  {this.props.Year}</span>
+                <span onClick={::this.reset}>{this.props.month}  {this.props.year}</span>
                 <a className="arrow-right" onClick={::this.nextMonth}>
                     <img src={right} alt="RIGHT-ARROW"/>
                 </a>

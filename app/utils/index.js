@@ -6,38 +6,39 @@ function current(){
 }
 
 function getMonthSize(year,month){
-    let current = this.current()
-    return new Date( (year||current.getFullYear()),(month||current.getMonth()+1),0 ).getDate()
+    let now = current()
+    return new Date((year || now.getFullYear()), (month || now.getMonth() + 1),0).getDate()
 }
 
 function getWeekDisplayRange(year,month){
+
     let
-         current = this.current()
-        ,mm      = month||current.getMonth()
-        ,yy      = year||current.getFullYear()
+         now     = current()
+        ,mm      = month || now.getMonth()
+        ,yy      = year  || now.getFullYear()
 
     return [new Date(yy,mm-1,1).getDay(),new Date(yy,mm,0).getDay()]
 }
 
-function displayNow(){
-    let current = this.current()
+function displayNow(node){
+
+    let now = node || current()
     return {
-        year:current.getFullYear(),
-        month:current.getMonth()+1,
-        date:current.getDate()
+        year:now.getFullYear(),
+        month:now.getMonth()+1,
+        date:now.getDate()
     }
 }
 
 function today(){
-    let current = this.current()
-    return current.getFullYear() + "-" + (current.getMonth() + 1) + "-" + current.getDate()
+    let now = current()
+    return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate()
 }
 
 function getMonthData(year,month){
-
 	let
-		range         = this.getWeekDisplayRange(year,month),
-		monthSize     = this.getMonthSize(year,month),
+		range         = getWeekDisplayRange(year,month),
+		monthSize     = getMonthSize(year,month),
 		startDay      = range[0],
 		endDay        = range[1],
 		dayBefore     = startDay,
@@ -55,7 +56,7 @@ function getMonthData(year,month){
 		prevMonth = month-1
 	}
 
-	let prevRange = this.getMonthSize(year,prevMonth)
+	let prevRange = getMonthSize(year,prevMonth)
 
 	for(let i = 0;i < dayBefore; i++)
 		prevMonthDays.push(prevRange-i)
@@ -69,6 +70,11 @@ function getMonthData(year,month){
 		current:curMonthDays,
 		next:nextMonthDays
 	}
+}
+
+function refreshDays(year,month){
+	let {prev,current,next}=getMonthData(year,month)
+	return prev.concat(current).concat(next)
 }
 
 function addClass(el,cls){
@@ -104,10 +110,8 @@ var convert = (function(field,format){
 	let emptyFunction = str => str
 	return function(field,format){
 
-		let
-			yy = field[0],
-			mm = field[1],
-			dd = field[2]
+
+        let {year,month,date} = field
 
 		if(mem === null){
 			mem = {}
@@ -122,7 +126,7 @@ var convert = (function(field,format){
 			if(yearPlhdr !== null){
 				mem.year = (format,year) => {
 					let charList = year.toString().split('').reverse()
-					return format.replace(yearPlhdr,yearPlhdr.map((e,i) => charList[i]).reverse().join(''))
+					return format.replace(yearPlhdr,Array.prototype.slice.call(yearPlhdr).map((e,i) => charList[i]).reverse().join(''))
 				}
 			} else {
 				mem.year = emptyFunction
@@ -130,9 +134,9 @@ var convert = (function(field,format){
 
 			if(monthPlhdr !== null){
 				if(monthPlhdr === 'mm'){
-					mem.month = (format,month) => format.replace(monthPlhdr,utils.MiniMonth[month-1])
+					mem.month = (format,month) => format.replace(monthPlhdr,utils.time.miniMonth[month-1])
 				} else if(monthPlhdr === 'MM'){
-					mem.month = (format,month) => format.replace(monthPlhdr,utils.Month[month-1])
+					mem.month = (format,month) => format.replace(monthPlhdr,utils.time.month[month-1])
 				}
 			} else {
 				mem.month = emptyFunction
@@ -145,7 +149,7 @@ var convert = (function(field,format){
 			}
 		}
 
-		return mem.year(mem.month(mem.date(format,dd),mm),yy)
+		return mem.year(mem.month(mem.date(format,date),month),year)
 	}
 })()
 
@@ -165,6 +169,7 @@ let utils={
         displayNow,
         today,
         getMonthData,
+        refreshDays,
         convert,
         week,
         month,
