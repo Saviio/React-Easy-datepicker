@@ -11,16 +11,19 @@ let cx=classNames.bind(style)
 
 export default class Datepicker extends React.Component{
     state = this.init(true)
+    timerId = null
 
     toggle(){
         let visable=this.state.visable
         this.setState({...this.state, visable:!visable, isInit : false})
         if(visable)
             this.autoHide()
+        if(!visable && this.timerId !== null)
+            clearTimeout(this.timerId)
     }
 
     autoHide(){
-        setTimeout(()=>
+        this.timerId = setTimeout(()=>
             utils.addClass(this.refs.Pop,'hide')
         ,800)
     }
