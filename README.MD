@@ -9,7 +9,7 @@ v1.5基于React 0.14的支持的class形式组织，使用ES6以及部分ES7特�
 
 Anyway，依旧是DEMO性质的组件，徒作练习。
 
-![image](https://raw.githubusercontent.com/Saviio/Saviio.github.io/master/images/1120.jpg)
+![image](https://raw.githubusercontent.com/Saviio/Saviio.github.io/master/images/1120.png)
 
 ###Run
 ```
