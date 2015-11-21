@@ -93,7 +93,7 @@ export default class Datepicker extends React.Component{
     }
 
     render(){
-
+        
         let
 			filter  = this.props.filter || 'mm dd, yyyy',
 			display = utils.time.convert(this.state.display,filter),

@@ -17,7 +17,10 @@ var config={
         filename: 'bundle.js',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('[name].[hash].css', {
+            disable: env==="development"
+        })
     ],
     module: {
         loaders: [{
@@ -72,9 +75,6 @@ if(env==='development'){
 
 if(env==='production'){
     [
-        new ExtractTextPlugin('[name].[hash].css', {
-            disable: false
-        }),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin(),
@@ -83,7 +83,7 @@ if(env==='production'){
             inject:'body',
             minify:{}
         })
-    ].forEach(function(e){ config.plugins.push(e) })    
+    ].forEach(function(e){ config.plugins.push(e) })
 }
 
 
